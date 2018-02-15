@@ -16,4 +16,4 @@ deploy:
   email: "viniciusgued@gmail.com"
   api_key: "c6a6505c-6e59-4c5d-a074-b5e63356edc9"
   on:
-    tags: next
+    tags: true
