@@ -14,6 +14,11 @@
     },
     "types": "index.d.ts",
 
+    "dependencies": {
+        "@types/node": "^9.4.6"
+    },
+    "devDependencies": { },
+
     "scripts": {
         "test": "echo \"No tests found\""
     }
