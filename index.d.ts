@@ -6,44 +6,44 @@ export namespace StackerJS
     export namespace DB
     {
 
-        export interface Query
+        export namespace Adapter
         {
 
-            collection:string;
+            export function create(query:Query):Promise<boolean>;
 
-            attributes?:any;
+            export function insert(query:Query):Promise<QueryResponse>;
 
-            criteria?:any;
+            export function update(query:Query):Promise<QueryResponse>;
 
-        }
+            export function findOne(query:Query):Promise<any>;
 
-        export interface QueryResponse
-        { 
+            export function findAll(query:Query):Promise<Array<any>>;
 
-            lastInsertedId:number;
+            export function remove(query:Query):Promise<QueryResponse>;
 
-            affectedRows:number;
+            export function drop(query:Query):Promise<QueryResponse>;
 
-            changedRows:number;
+            export interface Query
+            {
 
-        }
+                collection:string;
 
-        export interface Adapter
-        {
+                attributes?:any;
 
-            create(Query):Promise<boolean>;
+                criteria?:any;
 
-            insert(Query):Promise<QueryResponse>;
+            }
 
-            update(Query):Promise<QueryResponse>;
+            export interface QueryResponse
+            { 
 
-            findOne(Query):Promise<any>;
+                lastInsertedId:number;
 
-            findAll(Query):Promise<Array<any>>;
+                affectedRows:number;
 
-            delete(Query):Promise<QueryResponse>;
+                changedRows:number;
 
-            drop(Query):Promise<QueryResponse>;
+            }
 
         }
 
