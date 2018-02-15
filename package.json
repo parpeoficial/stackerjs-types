@@ -1,13 +1,20 @@
 {
-    "name": "stackerjs/types",
+    "name": "stackerjs-types",
     "version": "0.1.0",
     "description": "Defines Stacker JS Typos",
-    "license": "Apache License",
+    "license": "Apache",
     "author": {
         "name": "Vinicius Guedes",
         "email": "viniciusgued@gmail.com",
         "url": "https://vinyguedess.github.io"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vinyguedess/stackerjs-types"
+    },
+    "types": "index.d.ts",
 
-    "types": "index.d.ts"
+    "scripts": {
+        "test": "echo \"No tests found\""
+    }
 }

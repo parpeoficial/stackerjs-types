@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "7"
+
+notifications:
+  slack: parpe:ypxSy7CvUXYAShDK7C3supzV
+
+install:
+  - npm install
+
+script:
+  - npm run test
+
+deploy:
+  provider: npm
+  email: "viniciusgued@gmail.com"
+  api_key: "c6a6505c-6e59-4c5d-a074-b5e63356edc9"
+  on:
+    tags: next
