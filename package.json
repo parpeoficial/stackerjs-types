@@ -2,6 +2,7 @@
     "name": "stackerjs/types",
     "version": "0.1.0",
     "description": "Defines Stacker JS Typos",
+    "license": "Apache License",
     "author": {
         "name": "Vinicius Guedes",
         "email": "viniciusgued@gmail.com",
