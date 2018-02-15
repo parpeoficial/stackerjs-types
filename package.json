@@ -1,0 +1,12 @@
+{
+    "name": "stackerjs/types",
+    "version": "0.1.0",
+    "description": "Defines Stacker JS Typos",
+    "author": {
+        "name": "Vinicius Guedes",
+        "email": "viniciusgued@gmail.com",
+        "url": "https://vinyguedess.github.io"
+    },
+
+    "types": "index.d.ts"
+}
