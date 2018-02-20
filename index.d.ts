@@ -280,8 +280,14 @@ export namespace StackerJS
                  */
                 public constructor(message:string|any);
 
+                /** 
+                 * Return error message.
+                 * In case it's an object/JSON returns object parsed.
+                */
+                public getMessage():string|any;
+
                 /**
-                 * Returns HttpError Code
+                 * Returns HTTP Status Code
                  */
                 public getCode():number;
 
