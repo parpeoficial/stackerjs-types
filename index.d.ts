@@ -499,7 +499,7 @@ export namespace StackerJS
 
             treatValue(value:any, treatString?:boolean):any;
     
-            toSql():string;
+            parse():string|any;
     
         }
     
