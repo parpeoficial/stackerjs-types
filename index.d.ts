@@ -760,6 +760,18 @@ export namespace StackerJS
          */
         public static loadEnvFile():void;
         
+        /**
+         * Deletes a configuration by its key
+         * 
+         * @param key Key of index to be deleted
+         */
+        public static delete(key:string):void;
+
+        /** 
+         * Clears all setted configs
+        */
+        public static clear():void;
+
     }
 
     /**
