@@ -496,6 +496,8 @@ export namespace StackerJS
             set(values:string|any, value?:string|number|boolean|Date):QueryBuilderQueries
     
             where(where:string|any):QueryBuilderQueries;
+
+            treatValue(value:string|boolean|number|Date):string|number;
     
             parse():string|any;
     
