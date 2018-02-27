@@ -456,7 +456,7 @@ export namespace StackerJS
     
         }
     
-        export interface QueryBuilder
+        export class QueryBuilder
         {
             
             insert():QueryBuilderInsert;
@@ -469,7 +469,7 @@ export namespace StackerJS
     
         }
     
-        export interface QueryCriteria
+        export class QueryCriteria
         {
     
             eq(field:string, value:any):string;
@@ -496,8 +496,6 @@ export namespace StackerJS
             set(values:string|any, value?:string|number|boolean|Date):QueryBuilderQueries
     
             where(where:string|any):QueryBuilderQueries;
-
-            treatValue(value:any, treatString?:boolean):any;
     
             parse():string|any;
     
