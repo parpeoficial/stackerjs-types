@@ -399,23 +399,18 @@ export namespace StackerJS
 
         }
     
-        export interface Connection
+        export class Connection
         {
-    
-            /**
-             * Closes database connection
-             */
-            close():void;
-            
+                
             /**
              * Connects to database
              */
             connect():void;
             
-            /**
-             * Returns connection driver
-             */
-            getConn():any;
+            /** 
+             * Closes connection to database
+            */
+            disconnect():void;
             
             /**
              * Checks if database is connected
@@ -423,16 +418,11 @@ export namespace StackerJS
             isConnected():boolean;
             
             /**
-             * Creates connection to database
-             */
-            makeConnection():any;
-            
-            /**
              * Executes a query or a bunch of them
              * 
              * @param query Can be a query string or an Array of queries
              */
-            query(query:Array<string>|string, params?:any):Promise<Array<any>|QueryResults>;
+            query(query:string|any, params?:any):Promise<Array<any>|QueryResults>;
     
         }
     
@@ -484,6 +474,10 @@ export namespace StackerJS
     
             gte(field:string, value:any):string;
     
+            in(field, values:Array<any>):string;
+
+            notin(field, values:Array<any>):string;
+
             andX(...criterias):string;
     
             orX(...criterias):string;
@@ -500,6 +494,8 @@ export namespace StackerJS
             treatValue(value:string|boolean|number|Date):string|number;
     
             parse():string|any;
+
+            execute():Promise<Array<any>|QueryResults>;
     
         }
     
