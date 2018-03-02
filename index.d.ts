@@ -448,6 +448,8 @@ export namespace StackerJS
     
         export class QueryBuilder
         {
+
+            table():QueryBuilderTable;
             
             insert():QueryBuilderInsert;
     
@@ -498,15 +500,28 @@ export namespace StackerJS
             execute():Promise<Array<any>|QueryResults>;
     
         }
-    
-        export interface QueryBuilderInsert extends QueryBuilderQueries
+
+        interface QueryBuilderTable extends QueryBuilderQueries
+        {
+
+            create(tableName:string):QueryBuilderTable;
+
+            drop(tableName:string):QueryBuilderTable;
+
+            ifExists():QueryBuilderTable;
+
+            ifNotExists():QueryBuilderTable;
+
+        }
+
+        interface QueryBuilderInsert extends QueryBuilderQueries
         {
     
             into(tableName:string):QueryBuilderQueries
     
         }
     
-        export interface QueryBuilderUpdate extends QueryBuilderQueries
+        interface QueryBuilderUpdate extends QueryBuilderQueries
         {
     
             into(tableName:string):QueryBuilderQueries;
@@ -515,7 +530,7 @@ export namespace StackerJS
     
         }
     
-        export interface QueryBuilderDelete extends QueryBuilderQueries
+        interface QueryBuilderDelete extends QueryBuilderQueries
         {
     
             from(tableName:string):QueryBuilderQueries;
@@ -524,7 +539,7 @@ export namespace StackerJS
     
         }
     
-        export interface QueryBuilderSelect extends QueryBuilderQueries
+        interface QueryBuilderSelect extends QueryBuilderQueries
         {
     
             set(...fields):QueryBuilderSelect;
