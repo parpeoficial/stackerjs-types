@@ -554,7 +554,7 @@ export namespace StackerJS
 
             having(having:string):QueryBuilderSelect;
 
-            order(order:string|Array<string>):QueryBuilderSelect;
+            order(...fields):QueryBuilderSelect;
     
             limit(limit:number):QueryBuilderSelect;
             
