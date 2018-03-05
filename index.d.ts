@@ -508,6 +508,8 @@ export namespace StackerJS
 
             drop(tableName:string):QueryBuilderTable;
 
+            exists(tableName:string):QueryBuilderTable;
+
             ifExists():QueryBuilderTable;
 
             ifNotExists():QueryBuilderTable;
