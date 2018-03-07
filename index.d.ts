@@ -464,25 +464,25 @@ export namespace StackerJS
         export class QueryCriteria
         {
     
-            eq(field:string, value:any):string;
+            eq(field:string, value:string|number|QueryBuilderSelect):string|any;
     
-            neq(field:string, value:any):string;
+            neq(field:string, value:string|number|QueryBuilderSelect):string|any;
     
-            lt(field:string, value:any):string;
+            lt(field:string, value:string|number|QueryBuilderSelect):string|any;
     
-            lte(field:string, value:any):string;
+            lte(field:string, value:string|number|QueryBuilderSelect):string|any;
     
-            gt(field:string, value:any):string;
+            gt(field:string, value:string|number|QueryBuilderSelect):string|any;
     
-            gte(field:string, value:any):string;
+            gte(field:string, value:string|number|QueryBuilderSelect):string|any;
     
-            in(field, values:Array<any>):string;
+            in(field, values:Array<any>|QueryBuilderSelect):string|any;
 
-            notin(field, values:Array<any>):string;
+            notin(field, values:Array<any>|QueryBuilderSelect):string|any;
 
-            andX(...criterias):string;
+            andX(...criterias):string|any;
     
-            orX(...criterias):string;
+            orX(...criterias):string|any;
     
         }
     
