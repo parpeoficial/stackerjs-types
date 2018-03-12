@@ -1,6 +1,6 @@
 {
     "name": "stackerjs-types",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Defines Stacker JS Typos",
     "license": "Apache",
     "author": {
@@ -13,12 +13,10 @@
         "url": "https://github.com/vinyguedess/stackerjs-types"
     },
     "types": "index.d.ts",
-
     "dependencies": {
         "@types/node": "^9.4.6"
     },
-    "devDependencies": { },
-
+    "devDependencies": {},
     "scripts": {
         "test": "echo \"No tests found\""
     }

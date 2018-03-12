@@ -1,57 +1,48 @@
+export namespace StackerJS {
 
+    export namespace DB {
 
-export namespace StackerJS
-{
+        export namespace Adapter {
 
-    export namespace DB
-    {
+            export function create(query: Query): Promise<boolean>;
 
-        export namespace Adapter
-        {
+            export function insert(query: Query): Promise<QueryResponse>;
 
-            export function create(query:Query):Promise<boolean>;
+            export function update(query: Query): Promise<QueryResponse>;
 
-            export function insert(query:Query):Promise<QueryResponse>;
+            export function findOne(query: Query): Promise<any>;
 
-            export function update(query:Query):Promise<QueryResponse>;
+            export function findAll(query: Query): Promise<Array<any>>;
 
-            export function findOne(query:Query):Promise<any>;
+            export function remove(query: Query): Promise<QueryResponse>;
 
-            export function findAll(query:Query):Promise<Array<any>>;
+            export function drop(query: Query): Promise<QueryResponse>;
 
-            export function remove(query:Query):Promise<QueryResponse>;
+            export interface Query {
 
-            export function drop(query:Query):Promise<QueryResponse>;
+                collection: string;
 
-            export interface Query
-            {
+                attributes?: any;
 
-                collection:string;
-
-                attributes?:any;
-
-                criteria?:any;
+                criteria?: any;
 
             }
 
-            export interface QueryResponse
-            { 
+            export interface QueryResponse {
 
-                lastInsertedId:number;
+                lastInsertedId: number;
 
-                affectedRows:number;
+                affectedRows: number;
 
-                changedRows:number;
+                changedRows: number;
 
             }
 
         }
 
-        export namespace ORM
-        {
+        export namespace ORM {
 
-            export class BaseRepository
-            {
+            export class BaseRepository {
 
             }
 
@@ -59,48 +50,46 @@ export namespace StackerJS
 
     }
 
-    export namespace Http
-    {
+    export namespace Http {
 
-        export class MakeRequest
-        {
-            
+        export class MakeRequest {
+
             /**
              * Defines an Header
              * 
              * @param key Request header key
              * @param value Request header value
              */
-            public setHeader(key:string, value:string):MakeRequest;
-            
+            public setHeader(key: string, value: string): MakeRequest;
+
             /**
              * Defines a host
              * 
              * @param host Request host
              */
-            public setHost(host:string):MakeRequest;
-            
+            public setHost(host: string): MakeRequest;
+
             /**
              * Defines a port
              * 
              * @param port Request port
              */
-            public setPort(port:number):MakeRequest;
-            
+            public setPort(port: number): MakeRequest;
+
             /**
              * Defines a request timeout 
              * 
              * @param timeout Request timeout
              */
-            public setTimeout(timeout:number):MakeRequest;
-            
+            public setTimeout(timeout: number): MakeRequest;
+
             /**
              * Makes a HTTP GET request
              * @param url Request's url
              * @param params Request's url params
              */
-            public get(url:string, params?:any):Promise<Response>;
-            
+            public get(url: string, params?: any): Promise<Response>;
+
             /**
              * Makes a HTTP POST request
              * 
@@ -108,8 +97,8 @@ export namespace StackerJS
              * @param params Request's url params
              * @param body Request's body
              */
-            public post(url:string, params?:any, body?:any):Promise<Response>;
-            
+            public post(url: string, params?: any, body?: any): Promise<Response>;
+
             /**
              * Makes a HTTP PUT request
              * 
@@ -117,7 +106,7 @@ export namespace StackerJS
              * @param params Request's url params
              * @param body Request's body
              */
-            public put(url:string, params?:any, body?:any):Promise<Response>;
+            public put(url: string, params?: any, body?: any): Promise<Response>;
 
             /**
              * Makes a HTTP PATCH request
@@ -126,113 +115,111 @@ export namespace StackerJS
              * @param params Request's url params
              * @param body Request's body
              */
-            public patch(url:string, params?:any, body?:any):Promise<Response>;
-            
+            public patch(url: string, params?: any, body?: any): Promise<Response>;
+
             /**
              * Makes a HTTP DELETE request
              * 
              * @param url Request's url
              * @param params Request's url params
              */
-            public delete(url:string, params?:any):Promise<Response>;
+            public delete(url: string, params?: any): Promise<Response>;
 
         }
 
-        export class Request
-        {
+        export class Request {
 
             /**
              * Request Constructor
              * @param request ExpressJS request object
              */
             constructor(request);
-            
+
             /**
              * Gets an HTTP url param or body attribute by key
              * @param key Param's key
              * @param defaultValue Default value in case key is not found
              */
-            public get(key:string, defaultValue?:any):any;
-            
+            public get(key: string, defaultValue?: any): any;
+
             /**
              * Returns HTTP request body
              */
-            public getBody():any;
-            
+            public getBody(): any;
+
             /**
              * Returns HTTP request complete URL
              */
-            public getCompleteUrl():string;
-            
+            public getCompleteUrl(): string;
+
             /**
              * Returns HTTP request headers
              */
-            public getHeaders():any;
-            
+            public getHeaders(): any;
+
             /**
              * Returns HTTP request hostname
              */
-            public getHostName():string;
-            
+            public getHostName(): string;
+
             /**
              * Returns HTTP request IP Address
              */
-            public getIPAddress():string;
-            
+            public getIPAddress(): string;
+
             /**
              * Returns HTTP request method
              */
-            public getMethod():string;
-            
+            public getMethod(): string;
+
             /**
              * Returns HTTP request url params
              */
-            public getParams():any;
-            
+            public getParams(): any;
+
             /**
              * Returns HTTP request port
              */
-            public getPort():number;
-            
+            public getPort(): number;
+
             /**
              * Returns HTTP request protocol
              */
-            public getProtocol():string;
-    
+            public getProtocol(): string;
+
             /**
              * Returns HTTP request url queries
              */
-            public getQueries():any;
-            
+            public getQueries(): any;
+
             /**
              * Returns HTTP request url
              */
-            public getUrl():string;
+            public getUrl(): string;
 
         }
 
-        export class Response
-        {
-            
-            public static HTTP_OK:number;
-            public static HTTP_CREATED:number;
-            public static HTTP_ACCEPTED:number;
-            public static HTTP_BAD_REQUEST:number;
-            public static HTTP_UNAUTHORIZED:number;
-            public static HTTP_FORBIDDEN:number;
-            public static HTTP_NOT_FOUND:number;
-            public static HTTP_INTERNAL_SERVER_ERROR:number;
+        export class Response {
+
+            public static HTTP_OK: number;
+            public static HTTP_CREATED: number;
+            public static HTTP_ACCEPTED: number;
+            public static HTTP_BAD_REQUEST: number;
+            public static HTTP_UNAUTHORIZED: number;
+            public static HTTP_FORBIDDEN: number;
+            public static HTTP_NOT_FOUND: number;
+            public static HTTP_INTERNAL_SERVER_ERROR: number;
 
             /**
              * Returns HTTP response headers
              */
-            public getHeaders():any;
-            
+            public getHeaders(): any;
+
             /**
              * Sets HTTP response headers
              * @param headers Object with headers key value to be set
              */
-            public setHeaders(headers:any):Response;
+            public setHeaders(headers: any): Response;
 
             /**
              * Sets a single header value
@@ -240,114 +227,107 @@ export namespace StackerJS
              * @param key Header key
              * @param value Header value
              */
-            public setHeader(key:string, value:any):Response;
-            
+            public setHeader(key: string, value: any): Response;
+
             /**
              * Returns HTTP response headers
              */
-            public getStatusCode():number;
-            
+            public getStatusCode(): number;
+
             /**
              * Sets a HTTP response status code
              * @param statusCode HTTP response status code
              */
-            public setStatusCode(statusCode:number):Response;
-            
+            public setStatusCode(statusCode: number): Response;
+
             /**
              * Returns HTTP response content
              */
-            public getContent():any|string;
-            
+            public getContent(): any | string;
+
             /**
              * Sets a HTTP response content
              * @param content HTTP response content
              */
-            public setContent(content:Buffer|string|number|any):Response;
+            public setContent(content: Buffer | string | number | any): Response;
 
         }
 
-        export namespace Exception
-        {
+        export namespace Exception {
 
-            export abstract class HttpError extends Error
-            {
+            export abstract class HttpError extends Error {
 
                 /**
                  * HttpError Constructor
                  * 
                  * @param message Error's message. Can be string or JSON object
                  */
-                public constructor(message:string|any);
+                public constructor(message: string | any);
 
                 /**
                  * Returns HttpError Code
                  */
-                public getCode():number;
+                public getCode(): number;
 
             }
-            
+
             export class BadRequestError extends HttpError { }
-    
+
             export class UnauthorizedError extends HttpError { }
-    
+
             export class ForbiddenError extends HttpError { }
-    
+
             export class NotFoundError extends HttpError { }
-            
+
         }
 
     }
 
-    export namespace MVC
-    {
+    export namespace MVC {
 
-        export abstract class Controller implements IController
-        {
-            
-            abstract routes():IControllerRoute;
-    
+        export abstract class Controller implements IController {
+
+            abstract routes(): IControllerRoute;
+
         }
 
-        export interface IController
-        {
-            
+        export interface IController {
+
             /**
              * Holds controllers routes to defined actions
              */
-            routes():IControllerRoute;
-    
+            routes(): IControllerRoute;
+
         }
-    
-        export interface IControllerRoute
-        {
-            
+
+        export interface IControllerRoute {
+
             /**
              * Defines GET routes and callbacks
              */
-            get?:any;
-            
+            get?: any;
+
             /**
              * Defines POST routes and callbacks
              */
-            post?:any;
-    
+            post?: any;
+
             /**
              * Defines PUT routes and callbacks
              */
-            put?:any;
-    
+            put?: any;
+
             /**
              * Defines DELETE routes and callbacks
              */
-            delete?:any;
-    
+            delete?: any;
+
         }
 
-        export interface IMiddleware
-        {
-    
-            do(request?:Http.Request):any;
-    
+        export interface IMiddleware {
+
+            do(request?: Http.Request): any;
+
         }
 
     }
@@ -356,8 +336,7 @@ export namespace StackerJS
      * Helper that permits setting and consulting informations.
      * Possible parsing .env file in project root in here.
      */
-    export class Config
-    {
+    export class Config {
 
         /**
          * Get a value from Configuration
@@ -365,7 +344,7 @@ export namespace StackerJS
          * @param key Key of value that will be gotten
          * @param defaultValue If key is not found, them returns default value
          */
-        public static get(key:string, defaultValue?:any);
+        public static get(key: string, defaultValue?: any);
 
         /**
          * Sets a value on Configuration based on key
@@ -373,26 +352,25 @@ export namespace StackerJS
          * @param key Key to index configuration
          * @param value Configuration value that will be set
          */
-        public static set(key:string, value:any):void;
-        
+        public static set(key: string, value: any): void;
+
         /**
          * Loads all variables in a .env file on Configuration
          */
-        public static loadEnvFile():void;
-        
+        public static loadEnvFile(): void;
+
     }
 
     /**
      * Class responsible for implementing functions that permits manage Cache.
      */
-    export class Cache
-    {
+    export class Cache {
 
         /**
          * Gets a cache if it's exists
          * @param fileName 
          */
-        public static get(fileName:string, defaultValue?:any):string;
+        public static get(fileName: string, defaultValue?: any): string;
 
         /**
          * Creates a cache file with defined content
@@ -401,29 +379,77 @@ export namespace StackerJS
          * @param fileContent File content to be cached
          * @param {Date} expiresAt defines a date when cache should expire. Default is 2 hours
          */
-        public static set(fileName:string, fileContent:string, expiresAt?:Date):void;
+        public static set(fileName: string, fileContent: string, expiresAt?: Date): void;
 
         /**
          * Verifies if there's a cache file with that name
          * 
          * @param fileName File to be checked
          */
-        public static has(fileName:string):boolean;
+        public static has(fileName: string): boolean;
+
+    }
+
+    /** 
+     * Class responsible for implementing util functions
+     */
+    export namespace Utils {
+
+        export namespace BR
+        {
+
+            export function CPF(cpf:string):{
+                
+                validate():boolean;
+
+                clear():string;
+
+                format():string;
+
+                locale():string;
+
+            };
+
+            export function CNPJ(cpf:string):{
+                
+                validate():boolean;
+
+                clear():string;
+
+                format():string;
+                
+            };
+
+        }
+
+        export namespace PT
+        {
+
+            export function NIF(nif:string):{
+                
+                validate():boolean;
+
+                clear():string;
+
+                format():string;
+
+            };
+            
+        }
 
     }
 
     /**
      * Represents current application.
      */
-    export class App
-    {
+    export class App {
 
         /**
          * App Constructor
          * 
          * @param name Application name
          */
-        public constructor(name:string);
+        public constructor(name: string);
 
         /**
          * Registers a microservice that will be used in application
@@ -431,36 +457,35 @@ export namespace StackerJS
          * @param {MicroService} microservice MicroService class with routes and callbacks configured
          * @param prefix Prefix of MicroService routes
          */
-        public registerMicroService(microservice:MicroService, prefix?:string):void;
+        public registerMicroService(microservice: MicroService, prefix?: string): void;
 
         /**
          * Executes App
          * 
          * @param port Defines a port for application run on
          */
-        public run(port:number):Server;
+        public run(port: number): Server;
 
     }
 
     /**
      * Manages each microservice in application and its functionalities
      */
-    export class MicroService
-    {
+    export class MicroService {
 
         /**
          * MicroService constructor
          * 
          * @param microServiceName Microservice's name
          */
-        public constructor(microServiceName:string);
+        public constructor(microServiceName: string);
 
         /**
          * Sets a middleware to the microservice routes
          * 
          * @param {MVC.IMiddleware} middleware Middleware class
          */
-        public setMiddleware(middleware:MVC.IMiddleware):void
+        public setMiddleware(middleware: MVC.IMiddleware): void
 
         /**
          * Defines and run a callback according to called route.
@@ -469,14 +494,14 @@ export namespace StackerJS
          * @param route Route that when called will execute callback
          * @param callback Callback that will be executed
          */
-        public setRoute(method:string, route:string, callback:Function):void;
+        public setRoute(method: string, route: string, callback: Function): void;
 
         /**
          * Register a controller to be used as routes and callbacks (actions) bucket.
          * 
          * @param {MVC.IController} controller Controller with routes and actions that will be loaded
          */
-        public registerController(controller:MVC.IController):void
+        public registerController(controller: MVC.IController): void
 
     }
 
