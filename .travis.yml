@@ -13,7 +13,7 @@ script:
 
 deploy:
   provider: npm
-  email: "viniciusgued@gmail.com"
+  email: "admin@parpe.com"
   api_key: $NPM_TOKEN
   on:
     branch: master
