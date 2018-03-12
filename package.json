@@ -1,6 +1,6 @@
 {
     "name": "stackerjs-types",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "description": "Defines Stacker JS Typos",
     "license": "Apache",
     "author": {
@@ -17,7 +17,7 @@
     "dependencies": {
         "@types/node": "^9.4.6"
     },
-    "devDependencies": { },
+    "devDependencies": {},
 
     "scripts": {
         "test": "echo \"No tests found\""

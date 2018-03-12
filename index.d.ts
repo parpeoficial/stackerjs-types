@@ -818,6 +818,55 @@ export namespace StackerJS
     }
 
     /**
+     * Class responsible for implementing utils functions.
+     */
+    export namespace Utils {
+
+        export namespace BR
+        {
+
+            export function CPF(cpf:string):{
+                
+                validate():boolean;
+
+                clear():string;
+
+                format():string;
+
+                locale():string;
+
+            };
+
+            export function CNPJ(cpf:string):{
+                
+                validate():boolean;
+
+                clear():string;
+
+                format():string;
+                
+            };
+
+        }
+
+        export namespace PT
+        {
+
+            export function NIF(nif:string):{
+                
+                validate():boolean;
+
+                clear():string;
+
+                format():string;
+
+            };
+            
+        }
+
+    }
+
+    /**
      * Represents current application.
      */
     export class App
