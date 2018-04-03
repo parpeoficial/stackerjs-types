@@ -1,23 +1,23 @@
 {
-    "name": "stackerjs-types",
-    "version": "1.0.12",
-    "description": "Defines Stacker JS Typos",
-    "license": "Apache",
-    "author": {
-        "name": "Vinicius Guedes",
-        "email": "viniciusgued@gmail.com",
-        "url": "https://vinyguedess.github.io"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/vinyguedess/stackerjs-types"
-    },
-    "types": "index.d.ts",
-    "dependencies": {
-        "@types/node": "^9.4.6"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "echo \"No tests found\""
-    }
+  "name": "stackerjs-types",
+  "version": "1.0.13",
+  "description": "Defines Stacker JS Typos",
+  "license": "Apache",
+  "author": {
+    "name": "Vinicius Guedes",
+    "email": "viniciusgued@gmail.com",
+    "url": "https://vinyguedess.github.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinyguedess/stackerjs-types"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/node": "^9.4.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"No tests found\""
+  }
 }
