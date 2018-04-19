@@ -730,6 +730,14 @@ export namespace StackerJS {
         public static get(key: string, defaultValue?: any);
 
         /**
+         * Get a value from Environment variables
+         * 
+         * @param key Env var
+         * @param defaultValue Default value if not found
+         */
+        public static env(key:string, defaultValue?:any);
+
+        /**
          * Sets a value on Configuration based on key
          * 
          * @param key Key to index configuration
