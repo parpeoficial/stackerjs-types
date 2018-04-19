@@ -1,51 +1,48 @@
 import { Server } from 'http';
 
 
-export namespace StackerJS
-{
+export namespace StackerJS {
 
-    export namespace Http
-    {
+    export namespace Http {
 
-        export class MakeRequest
-        {
-            
+        export class MakeRequest {
+
             /**
              * Defines an Header
              * 
              * @param key Request header key
              * @param value Request header value
              */
-            public setHeader(key:string, value:string):MakeRequest;
-            
+            public setHeader(key: string, value: string): MakeRequest;
+
             /**
              * Defines a host
              * 
              * @param host Request host
              */
-            public setHost(host:string):MakeRequest;
-            
+            public setHost(host: string): MakeRequest;
+
             /**
              * Defines a port
              * 
              * @param port Request port
              */
-            public setPort(port:number):MakeRequest;
-            
+            public setPort(port: number): MakeRequest;
+
             /**
              * Defines a request timeout 
              * 
              * @param timeout Request timeout
              */
-            public setTimeout(timeout:number):MakeRequest;
-            
+            public setTimeout(timeout: number): MakeRequest;
+
             /**
              * Makes a HTTP GET request
              * @param url Request's url
              * @param params Request's url params
              */
-            public get(url:string, params?:any):Promise<Response>;
-            
+            public get(url: string, params?: any): Promise<Response>;
+
             /**
              * Makes a HTTP POST request
              * 
@@ -53,8 +50,8 @@ export namespace StackerJS
              * @param params Request's url params
              * @param body Request's body
              */
-            public post(url:string, params?:any, body?:any):Promise<Response>;
-            
+            public post(url: string, params?: any, body?: any): Promise<Response>;
+
             /**
              * Makes a HTTP PUT request
              * 
@@ -62,7 +59,7 @@ export namespace StackerJS
              * @param params Request's url params
              * @param body Request's body
              */
-            public put(url:string, params?:any, body?:any):Promise<Response>;
+            public put(url: string, params?: any, body?: any): Promise<Response>;
 
             /**
              * Makes a HTTP PATCH request
@@ -71,113 +68,111 @@ export namespace StackerJS
              * @param params Request's url params
              * @param body Request's body
              */
-            public patch(url:string, params?:any, body?:any):Promise<Response>;
-            
+            public patch(url: string, params?: any, body?: any): Promise<Response>;
+
             /**
              * Makes a HTTP DELETE request
              * 
              * @param url Request's url
              * @param params Request's url params
              */
-            public delete(url:string, params?:any):Promise<Response>;
+            public delete(url: string, params?: any): Promise<Response>;
 
         }
 
-        export class Request
-        {
+        export class Request {
 
             /**
              * Request Constructor
              * @param request ExpressJS request object
              */
             constructor(request);
-            
+
             /**
              * Gets an HTTP url param or body attribute by key
              * @param key Param's key
              * @param defaultValue Default value in case key is not found
              */
-            public get(key:string, defaultValue?:any):any;
-            
+            public get(key: string, defaultValue?: any): any;
+
             /**
              * Returns HTTP request body
              */
-            public getBody():any;
-            
+            public getBody(): any;
+
             /**
              * Returns HTTP request complete URL
              */
-            public getCompleteUrl():string;
-            
+            public getCompleteUrl(): string;
+
             /**
              * Returns HTTP request headers
              */
-            public getHeaders():any;
-            
+            public getHeaders(): any;
+
             /**
              * Returns HTTP request hostname
              */
-            public getHostName():string;
-            
+            public getHostName(): string;
+
             /**
              * Returns HTTP request IP Address
              */
-            public getIPAddress():string;
-            
+            public getIPAddress(): string;
+
             /**
              * Returns HTTP request method
              */
-            public getMethod():string;
-            
+            public getMethod(): string;
+
             /**
              * Returns HTTP request url params
              */
-            public getParams():any;
-            
+            public getParams(): any;
+
             /**
              * Returns HTTP request port
              */
-            public getPort():number;
-            
+            public getPort(): number;
+
             /**
              * Returns HTTP request protocol
              */
-            public getProtocol():string;
-    
+            public getProtocol(): string;
+
             /**
              * Returns HTTP request url queries
              */
-            public getQueries():any;
-            
+            public getQueries(): any;
+
             /**
              * Returns HTTP request url
              */
-            public getUrl():string;
+            public getUrl(): string;
 
         }
 
-        export class Response
-        {
-            
-            public static HTTP_OK:number;
-            public static HTTP_CREATED:number;
-            public static HTTP_ACCEPTED:number;
-            public static HTTP_BAD_REQUEST:number;
-            public static HTTP_UNAUTHORIZED:number;
-            public static HTTP_FORBIDDEN:number;
-            public static HTTP_NOT_FOUND:number;
-            public static HTTP_INTERNAL_SERVER_ERROR:number;
+        export class Response {
+
+            public static HTTP_OK: number;
+            public static HTTP_CREATED: number;
+            public static HTTP_ACCEPTED: number;
+            public static HTTP_BAD_REQUEST: number;
+            public static HTTP_UNAUTHORIZED: number;
+            public static HTTP_FORBIDDEN: number;
+            public static HTTP_NOT_FOUND: number;
+            public static HTTP_INTERNAL_SERVER_ERROR: number;
 
             /**
              * Returns HTTP response headers
              */
-            public getHeaders():any;
-            
+            public getHeaders(): any;
+
             /**
              * Sets HTTP response headers
              * @param headers Object with headers key value to be set
              */
-            public setHeaders(headers:any):Response;
+            public setHeaders(headers: any): Response;
 
             /**
              * Sets a single header value
@@ -185,136 +180,127 @@ export namespace StackerJS
              * @param key Header key
              * @param value Header value
              */
-            public setHeader(key:string, value:any):Response;
-            
+            public setHeader(key: string, value: any): Response;
+
             /**
              * Returns HTTP response headers
              */
-            public getStatusCode():number;
-            
+            public getStatusCode(): number;
+
             /**
              * Sets a HTTP response status code
              * @param statusCode HTTP response status code
              */
-            public setStatusCode(statusCode:number):Response;
-            
+            public setStatusCode(statusCode: number): Response;
+
             /**
              * Returns HTTP response content
              */
-            public getContent():any|string;
-            
+            public getContent(): any | string;
+
             /**
              * Sets a HTTP response content
              * @param content HTTP response content
              */
-            public setContent(content:Buffer|string|number|any):Response;
+            public setContent(content: Buffer | string | number | any): Response;
 
         }
 
-        export namespace Exception
-        {
+        export namespace Exception {
 
-            export abstract class HttpError extends Error
-            {
+            export abstract class HttpError extends Error {
 
                 /**
                  * HttpError Constructor
                  * 
                  * @param message Error's message. Can be string or JSON object
                  */
-                public constructor(message:string|any);
+                public constructor(message: string | any);
 
                 /** 
                  * Return error message.
                  * In case it's an object/JSON returns object parsed.
                 */
-                public getMessage():string|any;
+                public getMessage(): string | any;
 
                 /**
                  * Returns HTTP Status Code
                  */
-                public getCode():number;
+                public getCode(): number;
 
             }
-            
+
             export class BadRequestError extends HttpError { }
-    
+
             export class UnauthorizedError extends HttpError { }
-    
+
             export class ForbiddenError extends HttpError { }
-    
+
             export class NotFoundError extends HttpError { }
-            
+
         }
 
     }
 
-    export namespace MVC
-    {
+    export namespace MVC {
 
-        export abstract class Controller implements IController
-        {
-            
-            abstract routes():IControllerRoute;
-    
+        export abstract class Controller implements IController {
+
+            abstract routes(): IControllerRoute;
+
         }
 
-        export interface IController
-        {
-            
+        export interface IController {
+
             /**
              * Holds controllers routes to defined actions
              */
-            routes():IControllerRoute;
-    
+            routes(): IControllerRoute;
+
         }
-    
-        export interface IControllerRoute
-        {
-            
+
+        export interface IControllerRoute {
+
             /**
              * Defines GET routes and callbacks
              */
-            get?:any;
-            
+            get?: any;
+
             /**
              * Defines POST routes and callbacks
              */
-            post?:any;
-    
+            post?: any;
+
             /**
              * Defines PUT routes and callbacks
              */
-            put?:any;
-    
+            put?: any;
+
             /**
              * Defines DELETE routes and callbacks
              */
-            delete?:any;
-    
+            delete?: any;
+
         }
 
-        export interface IMiddleware
-        {
-    
-            do(request?:Http.Request):any;
-    
+        export interface IMiddleware {
+
+            do(request?: Http.Request): any;
+
         }
 
     }
 
-    export namespace Integrations
-    {
+    export namespace Integrations {
 
-        export class Slack
-        {
+        export class Slack {
 
             /**
              * Sends a message on configured Channel into Slack.
              * 
              * @param text Message to be sent
              */
-            public text(text:string):Promise<boolean>;
+            public text(text: string): Promise<boolean>;
 
             /**
              * Sends a message with attachment on configured Channel into Slack.
@@ -322,270 +308,252 @@ export namespace StackerJS
              * @param text Message to be sent
              * @param attachments Array of attachments
              */
-            public attach(text:string, attachments:Array<SlackMessageAttachment>):Promise<boolean>;
+            public attach(text: string, attachments: Array<SlackMessageAttachment>): Promise<boolean>;
 
             /**
              * Sends message to Slack according to defined configurations on message object.
              * 
              * @param message Message to be sent to Slack
              */
-            public send(message:SlackMessage):Promise<boolean>;
+            public send(message: SlackMessage): Promise<boolean>;
 
         }
 
-        interface SlackMessage
-        {
-    
-            icon_url:string;
-    
-            username:string;
-    
-            channel:string;
-    
-            text:string;
-    
-            attachments?:Array<SlackMessageAttachment>;
-    
+        interface SlackMessage {
+
+            icon_url: string;
+
+            username: string;
+
+            channel: string;
+
+            text: string;
+
+            attachments?: Array<SlackMessageAttachment>;
+
         }
-    
-        interface SlackMessageAttachment
-        {
-    
-            fallback?:string;
-    
-            pretext?:string;
-    
-            text?:string;
-    
-            color:string;
-    
-            fields:Array<SlackMessageAttachmentField>;
-    
+
+        interface SlackMessageAttachment {
+
+            fallback?: string;
+
+            pretext?: string;
+
+            text?: string;
+
+            color: string;
+
+            fields: Array<SlackMessageAttachmentField>;
+
         }
-    
-        interface SlackMessageAttachmentField
-        {
-    
-            title:string;
-    
-            value:string;
-    
-            short?:boolean;
-    
+
+        interface SlackMessageAttachmentField {
+
+            title: string;
+
+            value: string;
+
+            short?: boolean;
+
         }
 
     }
 
-    export namespace DB
-    {
-        
-        export class Factory
-        {
-            
+    export namespace DB {
+
+        export class Factory {
+
             /**
              * Returns a QueryBuilder instance based on database driver
              */
-            public static getQueryBuilder():QueryBuilder;
-            
+            public static getQueryBuilder(): QueryBuilder;
+
             /**
              * Returns a QueryCriteria instance based on database driver
              */
-            public static getQueryCriteria():QueryCriteria;
-            
+            public static getQueryCriteria(): QueryCriteria;
+
             /**
              * Returns a Connection instance based on database driver
              */
-            public static getConnection():Connection;
+            public static getConnection(): Connection;
 
         }
-    
-        export class Connection
-        {
-                
+
+        export interface Connection {
+
             /**
              * Connects to database
              */
-            static connect():void;
-            
+            connect(): void;
+
             /** 
              * Closes connection to database
             */
-            static disconnect():void;
-            
+            disconnect(): void;
+
             /**
              * Checks if database is connected
              */
-            static isConnected():boolean;
-            
+            isConnected(): boolean;
+
             /**
              * Executes a query or a bunch of them
              * 
              * @param query Can be a query string or an Array of queries
              */
-            static query(query:string|any, params?:any):Promise<Array<any>|QueryResults>;
-    
+            query(query: string | any, params?: any): Promise<Array<any> | QueryResults>;
+
         }
-    
-        export interface QueryResults
-        {
-            
+
+        export interface QueryResults {
+
             /**
              * Returns last inserted id in case it's an insert query
              */
-            lastInsertedId?:number|string;
-            
+            lastInsertedId?: number | string;
+
             /**
              * Returns number of changed rows
              */
-            changedRows?:number;
-            
+            changedRows?: number;
+
             /**
              * Returns number of affected rows
              */
-            affectedRows?:number;
-    
-        }
-    
-        export class QueryBuilder
-        {
-
-            table():QueryBuilderTable;
-            
-            insert():QueryBuilderInsert;
-    
-            update():QueryBuilderUpdate;
-    
-            delete():QueryBuilderDelete;
-    
-            select():QueryBuilderSelect;
-    
-        }
-    
-        export class QueryCriteria
-        {
-    
-            eq(field:string, value:string|number|QueryBuilderSelect):string|any;
-    
-            neq(field:string, value:string|number|QueryBuilderSelect):string|any;
-    
-            lt(field:string, value:string|number|QueryBuilderSelect):string|any;
-    
-            lte(field:string, value:string|number|QueryBuilderSelect):string|any;
-    
-            gt(field:string, value:string|number|QueryBuilderSelect):string|any;
-    
-            gte(field:string, value:string|number|QueryBuilderSelect):string|any;
-    
-            in(field, values:Array<any>|QueryBuilderSelect):string|any;
-
-            notin(field, values:Array<any>|QueryBuilderSelect):string|any;
-
-            andX(...criterias):string|any;
-    
-            orX(...criterias):string|any;
-    
-        }
-    
-        export interface QueryBuilderQueries
-        {
-    
-            set(values:string|any, value?:string|number|boolean|Date):QueryBuilderQueries
-    
-            where(where:string|any):QueryBuilderQueries;
-
-            treatValue(value:string|boolean|number|Date, treatString?:boolean):string|number;
-    
-            parse():string|any;
-
-            execute():Promise<Array<any>|QueryResults>;
-    
-        }
-
-        interface QueryBuilderTable extends QueryBuilderQueries
-        {
-
-            create(tableName:string):QueryBuilderTable;
-
-            drop(tableName:string):QueryBuilderTable;
-
-            exists(tableName:string):QueryBuilderTable;
-
-            ifExists():QueryBuilderTable;
-
-            ifNotExists():QueryBuilderTable;
+            affectedRows?: number;
 
         }
 
-        interface QueryBuilderInsert extends QueryBuilderQueries
-        {
-    
-            into(tableName:string):QueryBuilderQueries
-    
-        }
-    
-        interface QueryBuilderUpdate extends QueryBuilderQueries
-        {
-    
-            into(tableName:string):QueryBuilderQueries;
-    
-            where(where:string|any):QueryBuilderQueries;
-    
-        }
-    
-        interface QueryBuilderDelete extends QueryBuilderQueries
-        {
-    
-            from(tableName:string):QueryBuilderQueries;
-    
-            where(where:string|any):QueryBuilderQueries;
-    
-        }
-    
-        interface QueryBuilderSelect extends QueryBuilderQueries
-        {
-    
-            set(...fields):QueryBuilderSelect;
-    
-            from(tableName:string):QueryBuilderSelect;
-    
-            join(type:string, tableName:string, on:string):QueryBuilderSelect
-    
-            where(where:string|any):QueryBuilderSelect;
-    
-            group(...fields):QueryBuilderSelect;
+        export class QueryBuilder {
 
-            having(having:string):QueryBuilderSelect;
+            table(): QueryBuilderTable;
 
-            order(...fields):QueryBuilderSelect;
-    
-            limit(limit:number):QueryBuilderSelect;
-            
-            offset(offset:number):QueryBuilderSelect;
-            
+            insert(): QueryBuilderInsert;
+
+            update(): QueryBuilderUpdate;
+
+            delete(): QueryBuilderDelete;
+
+            select(): QueryBuilderSelect;
+
+        }
+
+        export class QueryCriteria {
+
+            eq(field: string, value: string | number | QueryBuilderSelect): string | any;
+
+            neq(field: string, value: string | number | QueryBuilderSelect): string | any;
+
+            lt(field: string, value: string | number | QueryBuilderSelect): string | any;
+
+            lte(field: string, value: string | number | QueryBuilderSelect): string | any;
+
+            gt(field: string, value: string | number | QueryBuilderSelect): string | any;
+
+            gte(field: string, value: string | number | QueryBuilderSelect): string | any;
+
+            in(field, values: Array<any> | QueryBuilderSelect): string | any;
+
+            notin(field, values: Array<any> | QueryBuilderSelect): string | any;
+
+            andX(...criterias): string | any;
+
+            orX(...criterias): string | any;
+
+        }
+
+        export interface QueryBuilderQueries {
+
+            set(values: string | any, value?: string | number | boolean | Date): QueryBuilderQueries
+
+            where(where: string | any): QueryBuilderQueries;
+
+            treatValue(value: string | boolean | number | Date, treatString?: boolean): string | number;
+
+            parse(): string | any;
+
+            execute(): Promise<Array<any> | QueryResults>;
+
+        }
+
+        interface QueryBuilderTable extends QueryBuilderQueries {
+
+            create(tableName: string): QueryBuilderTable;
+
+            drop(tableName: string): QueryBuilderTable;
+
+            exists(tableName: string): QueryBuilderTable;
+
+            ifExists(): QueryBuilderTable;
+
+            ifNotExists(): QueryBuilderTable;
+
+        }
+
+        interface QueryBuilderInsert extends QueryBuilderQueries {
+
+            into(tableName: string): QueryBuilderQueries
+
+        }
+
+        interface QueryBuilderUpdate extends QueryBuilderQueries {
+
+            into(tableName: string): QueryBuilderQueries;
+
+            where(where: string | any): QueryBuilderQueries;
+
+        }
+
+        interface QueryBuilderDelete extends QueryBuilderQueries {
+
+            from(tableName: string): QueryBuilderQueries;
+
+            where(where: string | any): QueryBuilderQueries;
+
+        }
+
+        interface QueryBuilderSelect extends QueryBuilderQueries {
+
+            set(...fields): QueryBuilderSelect;
+
+            from(tableName: string): QueryBuilderSelect;
+
+            join(type: string, tableName: string, on: string): QueryBuilderSelect
+
+            where(where: string | any): QueryBuilderSelect;
+
+            group(...fields): QueryBuilderSelect;
+
+            having(having: string): QueryBuilderSelect;
+
+            order(...fields): QueryBuilderSelect;
+
+            limit(limit: number): QueryBuilderSelect;
+
+            offset(offset: number): QueryBuilderSelect;
+
         }
 
     }
 
-    export namespace ORM
-    {
+    export namespace ORM {
 
-        export class Util
-        {
-            
+        export class Util {
+
             /**
              * Make an Entity from database data
              * 
              * @param defaultEntity Sample Entitity to be replicated
              * @param attributes Database row's attributes
              */
-            public static makeEntity(defaultEntity:IEntity, attributes);
+            public static makeEntity(defaultEntity: IEntity, attributes);
 
         }
 
-        export abstract class BaseRepository implements IRepository
-        {
+        export abstract class BaseRepository implements IRepository {
 
-            abstract entity:IEntity;
+            abstract entity: IEntity;
 
             /**
              * Adds an error message
@@ -593,40 +561,47 @@ export namespace StackerJS
              * @param field Or item to where error's message is attached
              * @param message Error's message
              */
-            public addError(field?:string|Error, message?:string|Error):void;
-            
+            public addError(field?: string | Error, message?: string | Error): void;
+
             /**
              * Returns an array of errors
              */
-            public getErrors():Array<string>;
-            
+            public getErrors(): Array<string>;
+
             /**
              * Identifies if there's any error message attached to Repository
              */
-            public hasErrors():boolean;
+            public hasErrors(): boolean;
+
+            /**
+             * Defines associated Entities to be loaded on find
+             * 
+             * @param {string} association
+             */
+            public with(association: string): BaseRepository;
 
             /**
              * Checks if selected entity is valid
              * 
-             * @param entity Entity to be verified
+             * @param {IEntity} entity Entity to be verified
              */
-            public validate(entity:IEntity):boolean;
+            public validate(entity: IEntity): boolean;
 
             /**
              * Saves an entity, if it's a new record insert it on database
              * but of is an already existent data that it's updated.
              * 
-             * @param entity Entity to be saved
+             * @param {IEntity} entity Entity to be saved
              */
-            public save(entity:IEntity):Promise<boolean>;
-                        
+            public save(entity: IEntity): Promise<boolean>;
+
             /**
              * Returns an Entity in case it's found in database
              * 
-             * @param id Id of entity to be found
+             * @param {string|number} id Id of entity to be found
              */
-            public findById(id:string|number):Promise<IEntity>;
-            
+            public findById(id: string | number): Promise<IEntity>;
+
             /**
              * Returns a list of Entities from defined repository
              * 
@@ -634,113 +609,108 @@ export namespace StackerJS
              * @param limit Defines a limit for Array of Entities
              * @param offset Defines where should Array start
              */
-            public find(filter?:string|any, limit?:number, offset?:number, order?:string|Array<string>):Promise<Array<IEntity>>;
+            public find(filter?: string | any, limit?: number, offset?: number, order?: string | Array<string>): Promise<Array<IEntity>>;
 
             /**
              * Returns a single Entity that matches results
              * 
              * @param filter Filter that will be matched with result
              */
-            public findOne(filter?:string|any):Promise<IEntity>;
+            public findOne(filter?: string | any): Promise<IEntity>;
 
             /**
              * Returns the number of registers in a repository
              * 
              * @param filters Defines a filter for counted entities in repository
              */
-            public count(filters?:string|any):Promise<number>;
+            public count(filters?: string | any): Promise<number>;
 
             /**
              * Deletes an Entity from database.
              * 
              * @param entity Entity to be deleted from database
              */
-            public delete(entity:IEntity):Promise<boolean>;
+            public delete(entity: IEntity): Promise<boolean>;
 
             /**
              * Executed before Entity validation
              * 
              * @param entity 
              */
-            protected beforeValidate(entity:IEntity):Promise<boolean>;
+            protected beforeValidate(entity: IEntity): Promise<boolean>;
 
             /**
              * Executed after Entity validation
              * 
              * @param entity Entity to be used after validation
              */
-            protected afterValidate(entity:IEntity):Promise<boolean>;
-            
+            protected afterValidate(entity: IEntity): Promise<boolean>;
+
             /**
              * Executed before Entity be saved
              * 
              * @param entity Entity that will be saved
              */
-            protected beforeSave(entity:IEntity):Promise<boolean>;
+            protected beforeSave(entity: IEntity): Promise<boolean>;
 
             /**
              * Executed after Entity being saved
              * 
              * @param entity Entity that was saved
              */
-            protected afterSave(entity:IEntity):Promise<boolean>;
+            protected afterSave(entity: IEntity): Promise<boolean>;
 
             /**
              * Updates an Entity
              * 
              * @param entity Entity to be updated
              */
-            protected update(entity:IEntity):Promise<boolean>;
+            protected update(entity: IEntity): Promise<boolean>;
 
             /**
              * Inserts an Entity
              * 
              * @param entity Entity to be inserted
              */
-            protected insert(entity:IEntity):Promise<boolean>;
+            protected insert(entity: IEntity): Promise<boolean>;
 
         }
 
-        export interface IRepository
-        {
-    
-            entity:IEntity;
-    
+        export interface IRepository {
+
+            entity: IEntity;
+
         }
-    
-        export interface IEntity
-        {
-    
-            metadata():IEntityMetadata;
-    
+
+        export interface IEntity {
+
+            metadata(): IEntityMetadata;
+
         }
-    
-        export interface IEntityMetadata
-        {
-            table:string;
-            fields:Array<IEntityMetadataField>;
-            relations:Array<IEntityMetadataRelation>;
+
+        export interface IEntityMetadata {
+            table: string;
+            fields: Array<IEntityMetadataField>;
+            relations: Array<IEntityMetadataRelation>;
         }
-    
-        export interface IEntityMetadataField
-        {
-            type:string;
-            name:string;
-            alias?:string;
-            required?:boolean;
-            max?:number;
-            min?:number;
-            default?:string|number;
+
+        export interface IEntityMetadataField {
+            type: string;
+            name: string;
+            alias?: string;
+            required?: boolean;
+            max?: number;
+            min?: number;
+            default?: string | number;
         }
-    
-        export interface IEntityMetadataRelation
-        {
-            name:string;
-            type:string;
-            referencedEntity:IEntity
-            field:string;
-            table?:string;
-            referencedField:string;
+
+        export interface IEntityMetadataRelation {
+            name: string;
+            type: string;
+            referencedEntity: IEntity
+            field: string;
+            table?: string;
+            referencedField: string;
         }
 
     }
@@ -749,8 +719,7 @@ export namespace StackerJS
      * Helper that permits setting and consulting informations.
      * Possible parsing .env file in project root in here.
      */
-    export class Config
-    {
+    export class Config {
 
         /**
          * Get a value from Configuration
@@ -758,7 +727,7 @@ export namespace StackerJS
          * @param key Key of value that will be gotten
          * @param defaultValue If key is not found, them returns default value
          */
-        public static get(key:string, defaultValue?:any);
+        public static get(key: string, defaultValue?: any);
 
         /**
          * Sets a value on Configuration based on key
@@ -766,38 +735,37 @@ export namespace StackerJS
          * @param key Key to index configuration
          * @param value Configuration value that will be set
          */
-        public static set(key:string, value:any):void;
-        
+        public static set(key: string, value: any): void;
+
         /**
          * Loads all variables in a .env file on Configuration
          */
-        public static loadEnvFile():void;
-        
+        public static loadEnvFile(): void;
+
         /**
          * Deletes a configuration by its key
          * 
          * @param key Key of index to be deleted
          */
-        public static delete(key:string):void;
+        public static delete(key: string): void;
 
         /** 
          * Clears all setted configs
         */
-        public static clear():void;
+        public static clear(): void;
 
     }
 
     /**
      * Class responsible for implementing functions that permits manage Cache.
      */
-    export class Cache
-    {
+    export class Cache {
 
         /**
          * Gets a cache if it's exists
          * @param fileName 
          */
-        public static get(fileName:string, defaultValue?:any):string;
+        public static get(fileName: string, defaultValue?: any): string;
 
         /**
          * Creates a cache file with defined content
@@ -806,14 +774,14 @@ export namespace StackerJS
          * @param fileContent File content to be cached
          * @param {Date} expiresAt defines a date when cache should expire. Default is 2 hours
          */
-        public static set(fileName:string, fileContent:string, expiresAt?:Date):void;
+        public static set(fileName: string, fileContent: string, expiresAt?: Date): void;
 
         /**
          * Verifies if there's a cache file with that name
          * 
          * @param fileName File to be checked
          */
-        public static has(fileName:string):boolean;
+        public static has(fileName: string): boolean;
 
     }
 
@@ -821,7 +789,7 @@ export namespace StackerJS
      * Class responsible for implementing utils functions.
      */
     export namespace Utils {
-        
+
         export namespace Text {
             export function isString(value): boolean;
 
@@ -864,46 +832,44 @@ export namespace StackerJS
             export function matches(value, options): boolean;
         }
 
-        export namespace BR
-        {
+        export namespace BR {
 
-            export function CPF(cpf:string):{
-                
-                validate():boolean;
+            export function CPF(cpf: string): {
 
-                clear():string;
+                validate(): boolean;
 
-                format():string;
+                clear(): string;
 
-                locale():string;
+                format(): string;
+
+                locale(): string;
 
             };
 
-            export function CNPJ(cpf:string):{
-                
-                validate():boolean;
+            export function CNPJ(cpf: string): {
 
-                clear():string;
+                validate(): boolean;
 
-                format():string;
-                
+                clear(): string;
+
+                format(): string;
+
             };
 
         }
 
-        export namespace PT
-        {
+        export namespace PT {
 
-            export function NIF(nif:string):{
-                
-                validate():boolean;
+            export function NIF(nif: string): {
 
-                clear():string;
+                validate(): boolean;
 
-                format():string;
+                clear(): string;
+
+                format(): string;
 
             };
-            
+
         }
 
     }
@@ -911,15 +877,14 @@ export namespace StackerJS
     /**
      * Represents current application.
      */
-    export class App
-    {
+    export class App {
 
         /**
          * App Constructor
          * 
          * @param name Application name
          */
-        public constructor(name:string);
+        public constructor(name: string);
 
         /**
          * Registers a microservice that will be used in application
@@ -927,36 +892,35 @@ export namespace StackerJS
          * @param {MicroService} microservice MicroService class with routes and callbacks configured
          * @param prefix Prefix of MicroService routes
          */
-        public registerMicroService(microservice:MicroService, prefix?:string):void;
+        public registerMicroService(microservice: MicroService, prefix?: string): void;
 
         /**
          * Executes App
          * 
          * @param port Defines a port for application run on
          */
-        public run(port:number):Server;
+        public run(port: number): Server;
 
     }
 
     /**
      * Manages each microservice in application and its functionalities
      */
-    export class MicroService
-    {
+    export class MicroService {
 
         /**
          * MicroService constructor
          * 
          * @param microServiceName Microservice's name
          */
-        public constructor(microServiceName:string);
+        public constructor(microServiceName: string);
 
         /**
          * Sets a middleware to the microservice routes
          * 
          * @param {MVC.IMiddleware} middleware Middleware class
          */
-        public setMiddleware(middleware:MVC.IMiddleware):void
+        public setMiddleware(middleware: MVC.IMiddleware): void
 
         /**
          * Defines and run a callback according to called route.
@@ -965,14 +929,14 @@ export namespace StackerJS
          * @param route Route that when called will execute callback
          * @param callback Callback that will be executed
          */
-        public setRoute(method:string, route:string, callback:Function):void;
+        public setRoute(method: string, route: string, callback: Function): void;
 
         /**
          * Register a controller to be used as routes and callbacks (actions) bucket.
          * 
          * @param {MVC.IController} controller Controller with routes and actions that will be loaded
          */
-        public registerController(controller:MVC.IController):void
+        public registerController(controller: MVC.IController): void
 
     }
 
