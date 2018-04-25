@@ -1,11 +1,14 @@
 import { Server } from 'http';
 
 
-export namespace StackerJS {
+export namespace StackerJS
+{
 
-    export namespace Http {
+    export namespace Http
+    {
 
-        export class MakeRequest {
+        export class MakeRequest
+        {
 
             /**
              * Defines an Header
@@ -80,7 +83,8 @@ export namespace StackerJS {
 
         }
 
-        export class Request {
+        export class Request
+        {
 
             /**
              * Request Constructor
@@ -152,7 +156,8 @@ export namespace StackerJS {
 
         }
 
-        export class Response {
+        export class Response
+        {
 
             public static HTTP_OK: number;
             public static HTTP_CREATED: number;
@@ -206,9 +211,11 @@ export namespace StackerJS {
 
         }
 
-        export namespace Exception {
+        export namespace Exception
+        {
 
-            export abstract class HttpError extends Error {
+            export abstract class HttpError extends Error
+            {
 
                 /**
                  * HttpError Constructor
@@ -242,15 +249,18 @@ export namespace StackerJS {
 
     }
 
-    export namespace MVC {
+    export namespace MVC
+    {
 
-        export abstract class Controller implements IController {
+        export abstract class Controller implements IController
+        {
 
             abstract routes(): IControllerRoute;
 
         }
 
-        export interface IController {
+        export interface IController
+        {
 
             /**
              * Holds controllers routes to defined actions
@@ -259,7 +269,8 @@ export namespace StackerJS {
 
         }
 
-        export interface IControllerRoute {
+        export interface IControllerRoute
+        {
 
             /**
              * Defines GET routes and callbacks
@@ -283,7 +294,8 @@ export namespace StackerJS {
 
         }
 
-        export interface IMiddleware {
+        export interface IMiddleware
+        {
 
             do(request?: Http.Request): any;
 
@@ -291,9 +303,11 @@ export namespace StackerJS {
 
     }
 
-    export namespace Integrations {
+    export namespace Integrations
+    {
 
-        export class Slack {
+        export class Slack
+        {
 
             /**
              * Sends a message on configured Channel into Slack.
@@ -319,7 +333,8 @@ export namespace StackerJS {
 
         }
 
-        interface SlackMessage {
+        interface SlackMessage
+        {
 
             icon_url: string;
 
@@ -333,7 +348,8 @@ export namespace StackerJS {
 
         }
 
-        interface SlackMessageAttachment {
+        interface SlackMessageAttachment
+        {
 
             fallback?: string;
 
@@ -347,7 +363,8 @@ export namespace StackerJS {
 
         }
 
-        interface SlackMessageAttachmentField {
+        interface SlackMessageAttachmentField
+        {
 
             title: string;
 
@@ -359,9 +376,11 @@ export namespace StackerJS {
 
     }
 
-    export namespace DB {
+    export namespace DB
+    {
 
-        export class Factory {
+        export class Factory
+        {
 
             /**
              * Returns a QueryBuilder instance based on database driver
@@ -380,7 +399,8 @@ export namespace StackerJS {
 
         }
 
-        export interface Connection {
+        export interface Connection
+        {
 
             /**
              * Connects to database
@@ -406,7 +426,8 @@ export namespace StackerJS {
 
         }
 
-        export interface QueryResults {
+        export interface QueryResults
+        {
 
             /**
              * Returns last inserted id in case it's an insert query
@@ -425,7 +446,8 @@ export namespace StackerJS {
 
         }
 
-        export class QueryBuilder {
+        export class QueryBuilder
+        {
 
             table(): QueryBuilderTable;
 
@@ -439,7 +461,8 @@ export namespace StackerJS {
 
         }
 
-        export class QueryCriteria {
+        export class QueryCriteria
+        {
 
             eq(field: string, value: string | number | QueryBuilderSelect): string | any;
 
@@ -463,11 +486,16 @@ export namespace StackerJS {
 
         }
 
-        export interface QueryBuilderQueries {
+        export interface QueryBuilderQueries
+        {
 
             set(values: string | any, value?: string | number | boolean | Date): QueryBuilderQueries
 
             where(where: string | any): QueryBuilderQueries;
+
+            andWhere(where): QueryBuilderQueries;
+
+            orWhere(where): QueryBuilderQueries;
 
             treatValue(value: string | boolean | number | Date, treatString?: boolean): string | number;
 
@@ -477,7 +505,8 @@ export namespace StackerJS {
 
         }
 
-        interface QueryBuilderTable extends QueryBuilderQueries {
+        interface QueryBuilderTable extends QueryBuilderQueries
+        {
 
             create(tableName: string): QueryBuilderTable;
 
@@ -491,13 +520,15 @@ export namespace StackerJS {
 
         }
 
-        interface QueryBuilderInsert extends QueryBuilderQueries {
+        interface QueryBuilderInsert extends QueryBuilderQueries
+        {
 
             into(tableName: string): QueryBuilderQueries
 
         }
 
-        interface QueryBuilderUpdate extends QueryBuilderQueries {
+        interface QueryBuilderUpdate extends QueryBuilderQueries
+        {
 
             into(tableName: string): QueryBuilderQueries;
 
@@ -505,7 +536,8 @@ export namespace StackerJS {
 
         }
 
-        interface QueryBuilderDelete extends QueryBuilderQueries {
+        interface QueryBuilderDelete extends QueryBuilderQueries
+        {
 
             from(tableName: string): QueryBuilderQueries;
 
@@ -513,7 +545,8 @@ export namespace StackerJS {
 
         }
 
-        interface QueryBuilderSelect extends QueryBuilderQueries {
+        interface QueryBuilderSelect extends QueryBuilderQueries
+        {
 
             set(...fields): QueryBuilderSelect;
 
@@ -537,9 +570,11 @@ export namespace StackerJS {
 
     }
 
-    export namespace ORM {
+    export namespace ORM
+    {
 
-        export class Util {
+        export class Util
+        {
 
             /**
              * Make an Entity from database data
@@ -551,7 +586,8 @@ export namespace StackerJS {
 
         }
 
-        export abstract class BaseRepository implements IRepository {
+        export abstract class BaseRepository implements IRepository
+        {
 
             abstract entity: IEntity;
 
@@ -676,25 +712,29 @@ export namespace StackerJS {
 
         }
 
-        export interface IRepository {
+        export interface IRepository
+        {
 
             entity: IEntity;
 
         }
 
-        export interface IEntity {
+        export interface IEntity
+        {
 
             metadata(): IEntityMetadata;
 
         }
 
-        export interface IEntityMetadata {
+        export interface IEntityMetadata
+        {
             table: string;
             fields: Array<IEntityMetadataField>;
             relations: Array<IEntityMetadataRelation>;
         }
 
-        export interface IEntityMetadataField {
+        export interface IEntityMetadataField
+        {
             type: string;
             name: string;
             alias?: string;
@@ -704,7 +744,8 @@ export namespace StackerJS {
             default?: string | number;
         }
 
-        export interface IEntityMetadataRelation {
+        export interface IEntityMetadataRelation
+        {
             name: string;
             type: string;
             referencedEntity: IEntity
@@ -719,7 +760,8 @@ export namespace StackerJS {
      * Helper that permits setting and consulting informations.
      * Possible parsing .env file in project root in here.
      */
-    export class Config {
+    export class Config
+    {
 
         /**
          * Get a value from Configuration
@@ -735,7 +777,7 @@ export namespace StackerJS {
          * @param key Env var
          * @param defaultValue Default value if not found
          */
-        public static env(key:string, defaultValue?:any);
+        public static env(key: string, defaultValue?: any);
 
         /**
          * Sets a value on Configuration based on key
@@ -767,7 +809,8 @@ export namespace StackerJS {
     /**
      * Class responsible for implementing functions that permits manage Cache.
      */
-    export class Cache {
+    export class Cache
+    {
 
         /**
          * Gets a cache if it's exists
@@ -796,9 +839,11 @@ export namespace StackerJS {
     /**
      * Class responsible for implementing utils functions.
      */
-    export namespace Utils {
+    export namespace Utils
+    {
 
-        export namespace Text {
+        export namespace Text
+        {
             export function isString(value): boolean;
 
             export function isLowercase(value): boolean;
@@ -816,11 +861,13 @@ export namespace StackerJS {
             export function isURI(value): boolean;
         }
 
-        export namespace Arrays {
+        export namespace Arrays
+        {
             export function isArray(value): boolean;
         }
 
-        export namespace Numbers {
+        export namespace Numbers
+        {
             export function isNumber(value): boolean;
 
             export function isLessThan(value, comparator): boolean;
@@ -830,7 +877,8 @@ export namespace StackerJS {
             export function isInteger(value): boolean;
         }
 
-        export namespace Other {
+        export namespace Other
+        {
             export function isEmpty(value): boolean;
 
             export function hasLength(value, length): boolean;
@@ -840,43 +888,48 @@ export namespace StackerJS {
             export function matches(value, options): boolean;
         }
 
-        export namespace BR {
+        export namespace BR
+        {
 
-            export function CPF(cpf: string): {
+            export function CPF(cpf: string):
+                {
 
-                validate(): boolean;
+                    validate(): boolean;
 
-                clear(): string;
+                    clear(): string;
 
-                format(): string;
+                    format(): string;
 
-                locale(): string;
+                    locale(): string;
 
-            };
+                };
 
-            export function CNPJ(cpf: string): {
+            export function CNPJ(cpf: string):
+                {
 
-                validate(): boolean;
+                    validate(): boolean;
 
-                clear(): string;
+                    clear(): string;
 
-                format(): string;
+                    format(): string;
 
-            };
+                };
 
         }
 
-        export namespace PT {
+        export namespace PT
+        {
 
-            export function NIF(nif: string): {
+            export function NIF(nif: string):
+                {
 
-                validate(): boolean;
+                    validate(): boolean;
 
-                clear(): string;
+                    clear(): string;
 
-                format(): string;
+                    format(): string;
 
-            };
+                };
 
         }
 
@@ -885,7 +938,8 @@ export namespace StackerJS {
     /**
      * Represents current application.
      */
-    export class App {
+    export class App
+    {
 
         /**
          * App Constructor
@@ -914,7 +968,8 @@ export namespace StackerJS {
     /**
      * Manages each microservice in application and its functionalities
      */
-    export class MicroService {
+    export class MicroService
+    {
 
         /**
          * MicroService constructor
