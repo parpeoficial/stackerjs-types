@@ -105,6 +105,11 @@ export namespace StackerJS
             public getBody(): any;
 
             /**
+             * Gets Remote IP Address that originated the request
+             */
+            public getIPAddress(): string;
+
+            /**
              * Returns HTTP request complete URL
              */
             public getCompleteUrl(): string;
@@ -263,7 +268,7 @@ export namespace StackerJS
         {
 
             /**
-             * Holds controllers routes to defined actions
+             * Provides controllers routes to defined actions
              */
             routes(): IControllerRoute;
 
@@ -297,6 +302,10 @@ export namespace StackerJS
         export interface IMiddleware
         {
 
+            /**
+             * Handles request before it get in Action
+             * @param {Http.Request} request 
+             */
             do(request?: Http.Request): any;
 
         }
@@ -312,7 +321,7 @@ export namespace StackerJS
             /**
              * Sends a message on configured Channel into Slack.
              * 
-             * @param text Message to be sent
+             * @param {string} text Message to be sent
              */
             public text(text: string): Promise<boolean>;
 
@@ -327,7 +336,7 @@ export namespace StackerJS
             /**
              * Sends message to Slack according to defined configurations on message object.
              * 
-             * @param message Message to be sent to Slack
+             * @param {SlackMessage} message Message to be sent to Slack
              */
             public send(message: SlackMessage): Promise<boolean>;
 
