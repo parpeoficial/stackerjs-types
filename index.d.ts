@@ -721,6 +721,15 @@ export namespace StackerJS
 
         }
 
+        export abstract class BaseEntity implements IEntity
+        {
+
+            attributes: any;
+
+            abstract metadata(): IEntityMetadata
+
+        }
+
         export interface IRepository
         {
 
